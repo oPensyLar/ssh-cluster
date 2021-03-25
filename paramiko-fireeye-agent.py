@@ -94,27 +94,34 @@ pwd = get_pass("you-password")
 
 array_cmds = [
 
-    'chmod +x /tmp/xagtSetup_dev_X.X.X.run' 
+    'chmod +x /tmp/xagtSetup_dev_X.X.X.run',
     'sh /tmp/xagtSetup_dev_X.X.X.run',
     'echo ' + pwd + '| sudo -S service xagt start',
     'echo ' + pwd + '| sudo -S service xagt start'
 
 ]
-port = 22
 
 with open("srv.txt") as fp:
     lines = fp.readlines()
 
     for c_line_hst in lines:
+
+        # Get local all files
         upload_files = glob.glob("file_uploads/*")
         for c_file in upload_files:
             file_name = os.path.basename(c_file)
             remote_file_path = remote_folder + file_name
+
+            # Upload recursive
             sftp_upload_file(c_line_hst, ssh_port, usr, pwd, c_file, remote_file_path)
 
         for c_cmd in array_cmds:
-            output = ssh_loop(c_line_hst, port, usr, pwd, c_cmd)
+            # Execute cmds over Host
+            print("[+] Execting '" + c_cmd + "' over '" + c_line_hst + "'")
+            output = ssh_loop(c_line_hst, ssh_port, usr, pwd, c_cmd)
             print(output["stdout"])
+            print(output["stderr"])
 
+        # Create host folder (save logs per host)
         if os.path.exists(c_line_hst) is False:
             os.mkdir(c_line_hst)
