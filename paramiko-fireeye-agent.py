@@ -89,8 +89,8 @@ def ssh_loop(host, prt, usr, pwd, cmd):
 
 remote_folder = "/tmp/"
 ssh_port = 22
-usr = "root"
-pwd = get_pass("pxgtsjmnt")
+usr = "you-user"
+pwd = get_pass("you-password")
 
 array_cmds = [
 
