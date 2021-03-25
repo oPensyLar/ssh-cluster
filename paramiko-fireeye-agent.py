@@ -46,10 +46,6 @@ def ssh_loop(host, prt, usr, pwd, cmd):
             print("[!] ERROR")
             continue
 
-        except paramiko.ssh_exception.SSHException:
-            print("[!] paramiko.ssh_exception.SSHException")
-            continue
-
         except paramiko.ssh_exception.AuthenticationException:
             print("[!] ERROR")
             continue
