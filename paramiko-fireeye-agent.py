@@ -91,7 +91,7 @@ pwd = get_pass("you-password")
 array_cmds = [
     'chmod +x /tmp/xagtSetup-32.30.12.run',
     'echo ' + pwd + '| sudo -S sh /tmp/xagtSetup-32.30.12.run',
-    'echo ' + pwd + '| sudo -S /opt/fireeye/bin/xagt -i agent_config.json',
+    'echo ' + pwd + '| sudo -S /opt/fireeye/bin/xagt -i /tmp/agent_config.json',
     'echo ' + pwd + '| sudo -S service xagt start',
     'echo ' + pwd + '| sudo -S service xagt status'
 ]
