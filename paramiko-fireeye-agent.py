@@ -94,7 +94,8 @@ pwd = get_pass("you-password")
 
 array_cmds = [
 
-    './xagtSetup_dev_X.X.X.run',
+    'chmod +x /tmp/xagtSetup_dev_X.X.X.run' 
+    'sh /tmp/xagtSetup_dev_X.X.X.run',
     'echo ' + pwd + '| sudo -S service xagt start',
     'echo ' + pwd + '| sudo -S service xagt start'
 
