@@ -89,12 +89,11 @@ usr = "you-user"
 pwd = get_pass("you-password")
 
 array_cmds = [
-
-    'chmod +x /tmp/xagtSetup_dev_X.X.X.run',
-    'sh /tmp/xagtSetup_dev_X.X.X.run',
+    'chmod +x /tmp/xagtSetup-32.30.12.run',
+    'sh /tmp/xagtSetup-32.30.12.run',
+    'echo ' + pwd + '| sudo -S /opt/fireeye/bin/xagt -i agent_config.json',
     'echo ' + pwd + '| sudo -S service xagt start',
     'echo ' + pwd + '| sudo -S service xagt start'
-
 ]
 
 with open("srv.txt") as fp:
@@ -103,17 +102,18 @@ with open("srv.txt") as fp:
     for c_line_hst in lines:
 
         # Get local all files
-        upload_files = glob.glob("file_uploads/*")
+        upload_files = glob.glob("files_uploads/*")
         for c_file in upload_files:
             file_name = os.path.basename(c_file)
             remote_file_path = remote_folder + file_name
 
             # Upload recursive
+            print("[+] Uploading " + c_file + " to " + remote_file_path + " on " + c_line_hst)
             sftp_upload_file(c_line_hst, ssh_port, usr, pwd, c_file, remote_file_path)
 
         for c_cmd in array_cmds:
             # Execute cmds over Host
-            print("[+] Execting '" + c_cmd + "' over '" + c_line_hst + "'")
+            print("[+] Executing '" + c_cmd + "' over '" + c_line_hst + "'")
             output = ssh_loop(c_line_hst, ssh_port, usr, pwd, c_cmd)
             print(output["stdout"])
             print(output["stderr"])
