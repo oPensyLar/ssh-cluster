@@ -16,11 +16,20 @@ This is simple, upload files and execute commands  multiple uploads over multipl
 
 ## How It Works
 
+
+First, generate base64 string password
+
+![Generate Base64 string](/img/base64-tool.png "Generate Base64 string").
+
+Replace ** line 90 ** change **cGFzc3dvcmQ=** to **you-base64-string-output**
+
+
+
+
 Change password & login
 
 ```python
 usr = "you-user"
-pwd = get_pass("you-password")
 ```
 
 

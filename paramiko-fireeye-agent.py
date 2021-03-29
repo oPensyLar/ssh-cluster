@@ -3,6 +3,7 @@ import time
 import os
 from socket import gaierror
 import glob
+import util
 
 def get_pass(pwd):
     return pwd
@@ -82,11 +83,11 @@ def ssh_loop(host, prt, usr, pwd, cmd):
         # print(stderr)
         repeat = False
 
-
+utils = util.Util()
 remote_folder = "/tmp/"
 ssh_port = 22
 usr = "you-user"
-pwd = get_pass("you-password")
+pwd = utils.b64_decrypt("cGFzc3dvcmQ=")
 
 array_cmds = [
     'chmod +x /tmp/xagtSetup-32.30.12.run',
