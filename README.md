@@ -33,7 +33,7 @@ You want encode ```your-ssh-password``` to base64 string
 ![Example base64 encode](img/base64-encode-decode.png)
 
 
-You need replace ** line 6 ** on creds.json
+You need replace ```line 6``` on creds.json
 
 ```json
 {
@@ -45,6 +45,8 @@ You need replace ** line 6 ** on creds.json
   }
 }
 ```
+
+Repeat this steps for ```ssh_user``` and ```sudo_password``` ? 
 
 
 ## How do I edit cmds.json?
