@@ -40,8 +40,8 @@ You need replace ```line 6``` on creds.json
   "creds" : {
 
     "ssh_user" : "ssh-user-base64-encoded",
-    "ssh_password" : "ssh-password-base64-encoded",
-    "sudo_password" : "eW91ci1zdWRvLXBhc3N3b3Jk"
+    "ssh_password" : "eW91ci1zc2gtcGFzc3dvcmQ=",
+    "sudo_password" : "ssh-sudo-password-base64-encoded"
   }
 }
 ```
