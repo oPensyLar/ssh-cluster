@@ -21,7 +21,7 @@ This is simple, execute commands & upload files over multiple SSH/SFTP servers.
 
 ## How do I edit creds.json?
 
-You can use ![Base64 encoder/decoder online](https://www.utilities-online.info/base64) to generate your base64 strings
+You can use https://www.utilities-online.info/base64 to generate your base64 strings
 
 
 Ex:
