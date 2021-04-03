@@ -46,7 +46,7 @@ You need replace ```line 6``` on creds.json
 }
 ```
 
-Repeat this steps for ```ssh_user``` and ```sudo_password``` ? 
+Repeat this steps for ```ssh_user``` and ```sudo_password```
 
 
 ## How do I edit cmds.json?
