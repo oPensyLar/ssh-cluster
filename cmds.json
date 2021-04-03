@@ -2,12 +2,8 @@
   "cmds" :
   {
     "1" : {
-      "cmd" : "mkdir /json_cmd",
+      "cmd" : "sh script-name.sh",
       "sudo" : true
-    },
-
-    "2" : {
-      "cmd" : "ls -la"
     }
   }
 }
