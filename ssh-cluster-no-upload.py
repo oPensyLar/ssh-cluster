@@ -48,7 +48,7 @@ def main():
         for c_cmd in all_cmds:
             ret = conn_ssh(lineHost, plaintext_ssh_user, plaintext_ssh_password, c_cmd)
 
-            with open("log.log", "a") as fp:
+            with open("log.log", "a", encoding="utf-8") as fp:
                 all_output = ret["stdout"] + ret["stderr"]
                 fp.write(all_output)
                 fp.close()

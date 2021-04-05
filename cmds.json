@@ -2,7 +2,7 @@
   "cmds" :
   {
     "1" : {
-      "cmd" : "sh script-name.sh",
+      "cmd" : "service colord status",
       "sudo" : true
     }
   }
