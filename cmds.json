@@ -1,9 +1,0 @@
-{
-  "cmds" :
-  {
-    "1" : {
-      "cmd" : "service colord status",
-      "sudo" : true
-    }
-  }
-}
