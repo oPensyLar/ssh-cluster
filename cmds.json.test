@@ -2,7 +2,8 @@
   "cmds" :
   {
     "1" : {
-      "cmd" : "service colord status"
+      "cmd" : "mkdir /hola",
+      "sudo" : true
     }
   }
 }

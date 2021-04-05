@@ -111,7 +111,15 @@ with open("srv.txt") as fp:
 
         for c_cmd in array_cmds:
             # Execute cmds over Host
-            print("[+] Executing '" + c_cmd + "' over '" + c_line_hst + "'")
+            str_out = None
+
+            if c_cmd.find("sudo") > 0x0:
+                str_out = "[+] Executing sudo cmd"
+
+            else:
+                str_out = "[+] Executing '" + c_cmd + "' over '" + c_line_hst + "'"
+
+            print(str_out)
             output = ssh_loop(c_line_hst, ssh_port, usr, pwd, c_cmd)
 
             with open("log.log", "a", encoding="utf-8") as fp:
