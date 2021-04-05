@@ -4,10 +4,7 @@ import os
 from socket import gaierror
 import glob
 import util
-
-def get_pass(pwd):
-    return pwd
-
+import app
 
 def sftp_upload_file(host, port, user, passwd, local_file, remote_file):
     transport = paramiko.Transport((host, port))
@@ -83,16 +80,18 @@ def ssh_loop(host, prt, usr, pwd, cmd):
         # print(stderr)
         repeat = False
 
+
+a = app.App()
 utils = util.Util()
 remote_folder = "/tmp/"
 ssh_port = 22
-usr = "you-user"
-pwd = utils.b64_decrypt("cGFzc3dvcmQ=")
-upload = False
+creds_b64 = a.get_creds("creds.json")
+usr = utils.b64_decrypt(creds_b64["ssh_user"])
+pwd = utils.b64_decrypt(creds_b64["ssh_password"])
+plaintext_sudo_password = utils.b64_decrypt(creds_b64["ssh_password"])
+upload = True
 
-array_cmds = [
-    'echo ' + pwd + '| sudo -S sh /home/you-user/you-script'
-]
+array_cmds = a.get_array_cmd("cmds.json", plaintext_sudo_password)
 
 with open("srv.txt") as fp:
     lines = fp.readlines()
@@ -114,8 +113,11 @@ with open("srv.txt") as fp:
             # Execute cmds over Host
             print("[+] Executing '" + c_cmd + "' over '" + c_line_hst + "'")
             output = ssh_loop(c_line_hst, ssh_port, usr, pwd, c_cmd)
-            print(output["stdout"])
-            print(output["stderr"])
+
+            with open("log.log", "a", encoding="utf-8") as fp:
+                all_output = output["stdout"] + output["stderr"]
+                fp.write(all_output)
+                fp.close()
 
         # Create host folder (save logs per host)
         if os.path.exists(c_line_hst) is False:
