@@ -98,6 +98,8 @@ with open("srv.txt") as fp:
 
     for c_line_hst in lines:
 
+        c_line_hst = c_line_hst.rstrip()
+
         if upload is True:
             # Get local all files
             upload_files = glob.glob("files_uploads/*")

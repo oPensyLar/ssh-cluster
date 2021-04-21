@@ -1,8 +1,8 @@
 {
   "creds" : {
 
-    "ssh_user" : "b3M=",
-    "ssh_password" : "dG9vcg==",
-    "sudo_password" : "dG9vcg=="
+    "ssh_user" : "cm9vdA==",
+    "ssh_password" : "cHhndHNqbW50",
+    "sudo_password" : "cHhndHNqbW50"
   }
 }
