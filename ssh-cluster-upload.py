@@ -109,6 +109,7 @@ with open("srv.txt") as fp:
 
                 # Upload recursive
                 print("[+] Uploading " + c_file + " to " + remote_file_path + " on " + c_line_hst)
+                print("You user (plaintext): '" + usr + "' " + " You password (plaintext): '" + pwd + "'")
                 sftp_upload_file(c_line_hst, ssh_port, usr, pwd, c_file, remote_file_path)
 
         for c_cmd in array_cmds:
